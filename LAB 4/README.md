@@ -2,8 +2,8 @@
 
 ## 1. Thông tin sinh viên
 
-- Họ và tên: ................................................
-- MSSV: ......................................................
+- Họ và tên: Nguyễn Thị Thanh Hiền 
+- MSSV: 1150080092
 - Môn học: An toàn hệ thống thông tin
 - Tên bài Lab: Lab 4 – Khảo sát và đánh giá bề mặt mạng bằng Nmap
 
