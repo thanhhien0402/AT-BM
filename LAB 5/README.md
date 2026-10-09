@@ -246,32 +246,6 @@ TcpTestSucceeded : True
 
 Firewall pfSense đã chặn thành công ICMP Echo Request từ LAN, đồng thời vẫn cho phép các dịch vụ DNS và HTTPS hoạt động bình thường.
 
-**Trạng thái:** HOÀN THÀNH.
-
-### 6.2. Tình huống 2 – Chỉ cho phép một host ra Internet
-
-**Mục tiêu:**
-
-Chỉ cho phép host `10.0.0.2` truy cập Internet, đồng thời hạn chế các host LAN khác.
-
-**Các bước đã thực hiện:**
-
-1. Disable rule Block ICMP của Tình huống 1.
-2. Disable rule Pass LAN subnets đến Any.
-3. Giữ nguyên Anti-Lockout Rule.
-4. Giữ các rule mặc định ở trạng thái Disabled.
-5. Apply Changes.
-
-**Cấu hình rule dự kiến:**
-
-| Thuộc tính | Giá trị |
-|---|---|
-| Action | Pass |
-| Interface | LAN |
-| Address Family | IPv4 |
-| Protocol | Any |
-| Source | 10.0.0.2 |
-| Destination | Any |
 
 ## 7. Lỗi gặp phải và cách khắc phục
 
