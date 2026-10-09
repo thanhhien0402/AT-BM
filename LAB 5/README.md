@@ -8,8 +8,6 @@
 - **Lớp:** 11_CNPM2
 ## 2. Mục tiêu bài lab
 
-Bài lab nhằm tìm hiểu cách triển khai và quản lý Firewall pfSense trong môi trường mạng ảo VMware Workstation.
-
 Các nội dung thực hiện:
 
 - Cài đặt và cấu hình pfSense.
@@ -53,8 +51,6 @@ Hệ thống gồm ba vùng mạng chính:
 | DMZ-Web | DMZ | 172.16.0.2/16 | IIS Web Server |
 | Máy thật | VMnet1 | 10.0.0.100/8 | Quản trị pfSense |
 
-Lưu ý: Địa chỉ WAN được cấp bằng DHCP nên có thể thay đổi.
-
 ### 3.4. Cấu hình VMware Network
 
 | VMnet | Chế độ | Subnet |
@@ -73,8 +69,6 @@ Lưu ý: Địa chỉ WAN được cấp bằng DHCP nên có thể thay đổi.
 - Truy cập thành công WebGUI tại `https://10.0.0.1`.
 - Hoàn thành cấu hình ban đầu của pfSense.
 
-**Kết quả:** PASS.
-
 ### 4.2. Cấu hình Domain Controller
 
 - Cấu hình địa chỉ IP `10.0.0.2/8`.
@@ -85,8 +79,6 @@ Lưu ý: Địa chỉ WAN được cấp bằng DHCP nên có thể thay đổi.
 - Cấu hình DNS Forwarder `8.8.8.8`.
 - Kiểm tra phân giải tên miền thành công.
 
-**Kết quả:** PASS.
-
 ### 4.3. Cấu hình máy chủ DMZ-Web
 
 - Tạo Windows Server trong mạng VMnet2.
@@ -95,16 +87,11 @@ Lưu ý: Địa chỉ WAN được cấp bằng DHCP nên có thể thay đổi.
 - Cài đặt IIS Web Server.
 - Kiểm tra IIS bằng lệnh:
 
-```powershell
-curl.exe http://localhost
-```
 
 Kết quả trả về nội dung trang mặc định IIS.
 
 - Tạo Firewall Rule cho phép ICMP Echo Request từ DMZ-Web đến địa chỉ DMZ của pfSense.
 - Kiểm tra ping đến `172.16.0.1` thành công.
-
-**Kết quả:** PASS đối với cài đặt IIS và kết nối đến gateway DMZ.
 
 ### 4.4. Cấu hình Outbound NAT
 
@@ -123,8 +110,6 @@ Các bước thực hiện:
 7. Translation Address là WAN address.
 8. Lưu và áp dụng cấu hình.
 
-**Kết quả:** PASS.
-
 ### 4.5. Cấu hình Firewall Rule LAN
 
 Truy cập:
@@ -141,8 +126,6 @@ Các bước thực hiện:
    - Source: LAN subnets
    - Destination: Any
 5. Save và Apply Changes.
-
-**Kết quả:** PASS.
 
 ## 5. Kiểm thử Firewall
 
@@ -161,8 +144,6 @@ Kết quả:
 - Ping gateway LAN thành công.
 - Ping Internet thành công.
 - Phân giải tên miền thành công.
-
-**Đánh giá:** PASS.
 
 ### 5.2. Kiểm thử khi tắt rule LAN
 
@@ -184,8 +165,6 @@ Kết quả:
 ```text
 Request timed out.
 ```
-
-Nhận xét: Khi rule LAN bị vô hiệu hóa, lưu lượng ICMP ra Internet không còn được cho phép.
 
 **Đánh giá:** PASS.
 
@@ -294,10 +273,6 @@ Chỉ cho phép host `10.0.0.2` truy cập Internet, đồng thời hạn chế 
 | Source | 10.0.0.2 |
 | Destination | Any |
 
-**Trạng thái:** ĐANG THỰC HIỆN.
-
-Chưa có kết quả kiểm thử xác nhận rằng chỉ host `10.0.0.2` được truy cập Internet và các host khác bị chặn.
-
 ## 7. Lỗi gặp phải và cách khắc phục
 
 | Lỗi / Hiện tượng | Nguyên nhân | Cách xử lý |
@@ -309,24 +284,7 @@ Chưa có kết quả kiểm thử xác nhận rằng chỉ host `10.0.0.2` đư
 | Ping Internet bị timeout khi Disable rule | Firewall chặn lưu lượng theo chính sách | Bật lại rule khi cần khôi phục kết nối |
 | Ping Internet bị timeout khi Block ICMP | Rule Block ICMP hoạt động | Đây là kết quả kiểm thử mong đợi |
 
-## 8. Tổng hợp kết quả
-
-| STT | Nội dung | Trạng thái |
-|---|---|---|
-| 1 | Cài đặt pfSense | PASS |
-| 2 | Cấu hình WAN, LAN, DMZ | PASS |
-| 3 | Cấu hình Domain Controller và DNS | PASS |
-| 4 | Cài đặt IIS trên DMZ-Web | PASS |
-| 5 | Cấu hình Outbound NAT LAN | PASS |
-| 6 | Cấu hình Firewall Rule LAN | PASS |
-| 7 | Kiểm thử bật/tắt rule LAN | PASS |
-| 8 | Tình huống 1 – Block ICMP, Allow DNS/HTTPS | PASS |
-| 9 | Tình huống 2 – Chỉ cho phép một host | Chưa hoàn thành |
-| 10 | Cô lập DMZ khỏi LAN | Chưa thực hiện |
-| 11 | Port Forward WAN đến DMZ | Chưa thực hiện |
-| 12 | Bật Logging và kiểm tra Firewall Log | Chưa thực hiện |
-
-## 9. Kết luận
+## 8. Kết luận
 
 Trong quá trình thực hiện bài lab, hệ thống mạng ảo đã được triển khai với ba vùng WAN, LAN và DMZ thông qua pfSense trên VMware Workstation.
 
@@ -335,5 +293,3 @@ Sinh viên đã thực hiện cấu hình địa chỉ IP, Domain Controller, DN
 Kết quả kiểm thử cho thấy pfSense có khả năng kiểm soát lưu lượng mạng dựa trên các chính sách được cấu hình. Khi rule LAN được bật, máy trong mạng nội bộ có thể truy cập Internet. Khi rule bị tắt, lưu lượng bị chặn theo chính sách Firewall.
 
 Đặc biệt, Tình huống 1 đã chứng minh khả năng chặn ICMP Echo Request mà không làm gián đoạn hoạt động phân giải DNS và kết nối HTTPS.
-
-Bài lab hiện dừng ở giai đoạn triển khai Tình huống 2. Các tình huống còn lại sẽ được tiếp tục thực hiện và kiểm thử trong các bước tiếp theo.
