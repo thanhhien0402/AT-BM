@@ -24,8 +24,6 @@ Các nội dung chính đã thực hiện:
 - Xuất kết quả quét ra các định dạng khác nhau.
 - Đánh giá sự thay đổi trước và sau khi áp dụng biện pháp hardening.
 
----
-
 **3. Môi trường thực hành**
 
 Môi trường được triển khai bằng các máy ảo và được cô lập trong cùng mạng nội bộ.
