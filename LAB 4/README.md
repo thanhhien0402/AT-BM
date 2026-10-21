@@ -7,8 +7,6 @@
 - Môn học: An toàn hệ thống thông tin
 - Tên bài Lab: Lab 4 – Khảo sát và đánh giá bề mặt mạng bằng Nmap
 
----
-**
 **2. Mục tiêu bài Lab**
 
 Bài Lab nhằm làm quen với công cụ Nmap và sử dụng Nmap để khảo sát, đánh giá bề mặt mạng trong môi trường thực hành cô lập.
