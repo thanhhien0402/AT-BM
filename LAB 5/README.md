@@ -8,12 +8,6 @@
 - **Lớp:** 11_DH_CNPM2
 - **LAB 5**: Cấu hình và kiểm thử Firewall pfSense
 
-## 1. Thông tin sinh viên
-- **Họ và tên:** Nguyễn Thị Thanh Hiền
-- **MSSV:** 1150080092
-- **Lớp:** 11CNPM2
-- **Môn học:** An toàn thông tin
-
 **2. Mục tiêu bài lab**
 
 Các nội dung thực hiện:
@@ -27,14 +21,14 @@ Các nội dung thực hiện:
 - Kiểm tra khả năng cho phép hoặc chặn lưu lượng mạng.
 - Thực hiện các tình huống kiểm thử chính sách bảo mật.
 
-## 2. Môi trường thực hiện
+**3. Môi trường thực hiện**
 - VMware Workstation
 - pfSense CE
 - Windows Server (Domain Controller, DNS Server)
 - Windows Server (DMZ-Web)
 - PowerShell/CMD và trình duyệt Web
 
-## 3. Nội dung thực hiện
+**4. Nội dung thực hiện**
 - Cấu hình interface LAN trên pfSense.
 - Cài đặt Active Directory Domain Services và tạo Domain Controller.
 - Cấu hình DNS Forwarder và kiểm tra phân giải tên miền.
@@ -45,12 +39,12 @@ Các nội dung thực hiện:
 - Kiểm tra kết nối khi bật/tắt rule LAN.
 - Thực hiện Tình huống 1: chặn ICMP nhưng vẫn cho phép DNS và HTTP/HTTPS.
 
-## 4. Kết quả
+**5. Kết quả**
 - Cấu hình LAN, Domain Controller và DNS.
 - Truy cập được giao diện quản trị pfSense.
 - Thiết lập vùng DMZ và máy chủ DMZ-Web.
 - Kiểm tra rule LAN ở trạng thái bật/tắt.
 - Thực hiện kiểm thử chặn ICMP và kiểm tra DNS, HTTP/HTTPS.
 
-## 5. Kết luận
+**6. Kết luận**
 Đã thực hiện các bước cấu hình mạng LAN, Domain Controller, DNS, DMZ và Firewall Rules trên pfSense. Báo cáo có ghi nhận các bước kiểm tra kết nối và thực hiện Tình huống 1.
